@@ -1,8 +1,13 @@
 package Calculator.Calculator;
 
-import junit.framework.Test;
+
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import org.junit.*;
+import org.junit.Test;
+
+
 
 /**
  * Unit test for simple App.
@@ -10,6 +15,7 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
+	private App calculator;
     /**
      * Create the test case
      *
@@ -19,15 +25,16 @@ public class AppTest
     {
         super( testName );
     }
+    
+    @Before
+    public void setUp() {
+        calculator = new App();
+    }
 
     /**
      * @return the suite of tests being tested
      */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
+    
     /**
      * Rigourous Test :-)
      */
@@ -35,4 +42,15 @@ public class AppTest
     {
         assertTrue( true );
     }
+    
+    @Test
+   public void testAdd()
+    {
+    	 int a = 15;
+         int b = 20;
+         int expectedResult = 35;
+         long result = calculator.add(a, b);
+         Assert.assertEquals(expectedResult, result);;
+    }
+    
 }
