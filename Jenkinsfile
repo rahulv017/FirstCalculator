@@ -29,7 +29,7 @@ pipeline {
        post { 
         always { 
             echo 'I will always say Hello again!'
-            sh 'java -cp target/Calculator-0.0.1-SNAPSHOT.jar Calculator.Calcula            tor.App'
+   sh 'java -cp target/Calculator-0.0.1-SNAPSHOT.jar Calculator.Calculator.App'
         }
     }
 }
