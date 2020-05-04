@@ -1,9 +1,17 @@
 pipeline {
+
+environment{
+       registy="rahulv017/firstcalpipline"
+       registryCredential='dockerhub'
+       dockerImage='' 
+     }
     agent any
   
    tools {
         maven "Maven"
     }
+    
+    
     stages {
         stage ('Compile Stage') {
 
@@ -22,6 +30,34 @@ pipeline {
                 
             }
         }
+          
+       stage ('Building image')
+        {
+           steps{
+                 script {
+                      docker.build registry + " :$BUILD_NUMBER"
+                   }
+               }
+         }
+
+          stage('Deploy Image') {
+             steps{
+                 script{
+                      docker.withRegistry('',registryCredential){
+                      dockerImage.push()
+                     }
+                 }
+             }
+          }
+    
+           stage('Removing Unused docker image'){
+            steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
+            }
+        }
+
+     
+  
 
 
         
