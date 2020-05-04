@@ -1,7 +1,7 @@
 pipeline {
 
 environment{
-       registy="rahulv017/firstcalpipline"
+       registry="rahulv017/firstcalpipline"
        registryCredential='dockerhub'
        dockerImage='' 
      }
