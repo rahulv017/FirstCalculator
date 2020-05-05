@@ -35,7 +35,7 @@ environment{
         {
            steps{
                  script {
-                      docker.build registry + " :$BUILD_NUMBER"
+                      dockerImage=docker.build registry + ":$BUILD_NUMBER"
                    }
                }
          }
@@ -55,6 +55,20 @@ environment{
                 sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
+
+             stage('Executing Rundeck Jobs'){
+                  steps{
+                     script{
+                           step([$class: "RundeckNotifier",
+                                 includeRundeckLogs:true,
+                                 jobId: "38e01ca7-0fbc-4736-846b-9bbf4dbb2ac9",
+                                 shouldFailTheBuild:true,
+                                 shouldWaitForRundeckJob:true,
+                                 tailLog:true])
+                             }
+                      }
+                }
+                                 
 
      
   
