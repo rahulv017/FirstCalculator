@@ -7,6 +7,10 @@ public class App {
 		return a+b;
 	}
 	
+	public int multiply(int a,int b)
+	{
+		return a*b;
+	}
 	 public static void main( String[] args )
 	    {
 		 App app=new App();
@@ -16,6 +20,9 @@ public class App {
 	        int a=2;
 	        int b=4;
 	        System.out.println("Addition will result in "+" "+app.add(a,b) );
+	        System.out.println("Let us also do multipilcation of 2 and 4");
+	        System.out.println("Multiplication is: "+ app.multiply(a, b));
+	        
 	        
 	    }
 

@@ -53,4 +53,14 @@ public class AppTest
          Assert.assertEquals(expectedResult, result);;
     }
     
+    @Test
+    public void testMultiply()
+    {
+    	int a=5;
+    	int b=10;
+    	int expectedResult=50;
+    	long result=calculator.multiply(a, b);
+    	Assert.assertEquals(expectedResult, result);
+    }
+    
 }
