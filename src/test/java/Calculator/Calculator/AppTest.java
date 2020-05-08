@@ -6,6 +6,7 @@ import junit.framework.TestSuite;
 
 import org.junit.*;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 
 
@@ -25,7 +26,7 @@ public class AppTest
     {
         super( testName );
     }
-    
+  
     @Before
     public void setUp() {
         calculator = new App();
@@ -62,5 +63,29 @@ public class AppTest
     	long result=calculator.multiply(a, b);
     	Assert.assertEquals(expectedResult, result);
     }
+    
+    @Test
+    public void testSubtraction()
+    {
+    	int a=5;
+    	int b=10;
+    	int expected=-5;
+    	long result=calculator.subtraction(a, b);
+    	Assert.assertEquals(expected, result);
+    }
+    
+    
+    
+    @Test
+    public void testDivision()
+    {
+    	int a=5;
+    	int b=2;
+    	int expected=2;
+    	long result=calculator.division(a, b);
+    	Assert.assertEquals(expected, result);
+    }
+    
+    
     
 }
