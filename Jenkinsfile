@@ -65,6 +65,7 @@ environment{
                            step([$class: "RundeckNotifier",
                                  includeRundeckLogs:true,
                                  jobId: "38e01ca7-0fbc-4736-846b-9bbf4dbb2ac9",
+                                 rundeckInstance: "Rundeck",
                                  shouldFailTheBuild:true,
                                  shouldWaitForRundeckJob:true,
                                  tailLog:true])
